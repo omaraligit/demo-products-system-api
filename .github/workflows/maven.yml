@@ -18,11 +18,8 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-        username: MAVEN_USERNAME
-        password: MAVEN_PASSWORD
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
         cache: maven
     - name: Build with Maven
-      env:
-        MAVEN_USERNAME: ${{ secrets.USERNAME }}
-        MAVEN_PASSWORD: ${{ secrets.PASSWORD }}
       run: mvn clean package deploy -DmuleDeploy -DapplicationName=demo-products-system-api -Denvironment=Sandbox
