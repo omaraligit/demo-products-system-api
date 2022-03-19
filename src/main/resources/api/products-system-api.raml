@@ -1,0 +1,19 @@
+#%RAML 1.0
+title: products-system-api
+
+/products:
+  get:
+    description: fetch all products
+    displayName: fetch products
+    queryParameters:
+      productId:
+        required: false
+        description: product id to fetch single product
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              value: [
+                {"productId":"P001","productPrice":100, "productName":"Iphone 12 mini", "inStock":10}
+              ]
